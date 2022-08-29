@@ -17,6 +17,13 @@
 
 #### 界面预览
 
+<img src="/img/1.jpg" width="50%">  
+
+<img src="/img/2.jpg" width="50%"> 
+
+<img src="/img/3.jpg" width="50%"> 
+
+<img src="/img/4.jpg" width="50%"> 
 
 #### 系统构建及安装要求
 
