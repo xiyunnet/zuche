@@ -1,0 +1,14 @@
+<template name="nav_top">
+<view class="nav_top" style="margin-top: {{nav.top}}px;z-index: 1000000;">
+<view  class="icon icon-chevron-left"  url="{{nav.url}}" style="{{nav.style}}" bindtap="back"></view>
+<text>{{nav.title}}</text>
+</view>
+</template>
+
+<template name="no_data">
+<view class="no_data">
+<image src="/pages/img/no_find.png" mode="widthFix"></image>
+<text>抱歉，没有找到查找结果!</text>
+
+</view>
+</template>
