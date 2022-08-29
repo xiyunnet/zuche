@@ -1,0 +1,113 @@
+<view class="main">
+<map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="{{scale}}" markers="{{marker}}" enable-3D="true"  enable-overlooking="true" enable-rotate="true" enable-building="true" setting="{{setting}}" bindmarkertap="markertap" polyline="{{polyline}}"  bindregionchange="regionchange" enable-traffic="true" bindpoitap="get_pos" skew="40" bindcallouttap="callouttap" style="{{search_show==1?'height:55vh':''}}">
+
+<cover-view slot="callout" class="cover_main">
+<cover-view marker-id="9999" class="my_point">
+<cover-view class="item"></cover-view>
+<cover-image src="/pages/img/my.png" class="point" style="transform:rotate({{degree}}deg)"></cover-image>
+</cover-view>
+
+
+<cover-view marker-id="1999" class="start_end {{set_end==1?'show':'hide'}}" >
+<cover-image src="/pages/img/end.png" class="img"></cover-image>
+<cover-view class="in_box">
+<cover-view class="left yellow_bg">
+<cover-view class="time">{{time}}</cover-view>
+<cover-view class="c">{{distance}}</cover-view></cover-view>
+<cover-view class="right">
+  <cover-view class="title">{{marker[2].addr.title}}</cover-view>
+  <cover-view class="addr">{{marker[2].addr.city}}{{marker[2].addr.dist}}</cover-view>
+<cover-image src="/pages/img/right.png" class="icon"></cover-image>
+</cover-view>
+</cover-view>
+
+</cover-view>
+
+
+
+
+<cover-view marker-id="999" class="start_end {{ac=='list'?(is_daohang==1?'show':'hide'):set_start==1?'show':'hide'}}">
+<cover-view class="in_box">
+<cover-view class="left blue_bg">
+<cover-view class="time">{{mode_type}}</cover-view>
+<cover-view class="c">{{policy_type}}</cover-view></cover-view>
+<cover-view class="right">
+  <cover-view class="title">{{marker[1].addr.title}}</cover-view>
+  <cover-view class="addr">{{marker[1].addr.city}}{{marker[1].addr.dist}}</cover-view>
+  <cover-image src="/pages/img/right.png" class="icon"></cover-image>
+</cover-view>
+</cover-view>
+<cover-image src="/pages/img/start.png" class="img"></cover-image>
+</cover-view>
+
+<cover-view wx:for="{{marker}}" wx:key="id" wx:index="index" wx:if="{{item.id>=100 && item.id<200}}" marker-id="{{item.id}}" class="shop_info ss {{item.is_select}} {{(item.id<100 && item.id>200)?'hide':'show'}}">
+<cover-view class="name">{{item.title}}</cover-view>
+<cover-view class="shop_addr">{{item.addr}}</cover-view>
+</cover-view>
+</cover-view>
+
+
+
+
+</map>
+<image src="/pages/img/yj.png" class="topleft" mode="top left"></image>
+<image src="/pages/img/yj.png" class="topright" mode="top right"></image>
+<image src="/pages/img/yj.png" class="bottomleft" mode="bottom left"></image>
+<image src="/pages/img/yj.png" class="bottomright" mode="bottom right"></image>
+
+
+
+<view class="nav" style="padding-top:{{nav.top}}px;">
+<view class="area" wx:if="{{dist}}">
+<picker mode="region" value="{{region}}" bindchange="region_change">{{region[0]}}</picker>
+<icon class="icon icon-chengshi"></icon>
+<text>{{dist}}</text>
+<icon class="icon icon-chevron-down"></icon>
+</view>
+</view>
+
+</view>
+
+
+
+<view class="is_select_point" wx:if="{{set_end!=1}}" style="{{search_show==1?'top: calc(27.5% - 10px)':''}}">
+<view class="in_box" wx:if="{{show_jt==1}}"></view>
+<view class="show_border" wx:if="{{show_jt==1}}"></view>
+<view class="add_info" wx:if="{{addr_show==1}}" style="{{show_jt==1?'':'bottom:50px'}}">
+<view class="title">{{addr.title}}</view>
+<view class="addr">{{addr.address}}</view>
+<view class="car_num" wx:if="{{shop && ac=='list'}}">{{shop.car_num}}辆车待租</view>
+<view class="bt_box">
+<view bindtap="openlocatin"  wx:if="{{ac!='point'}}">导航</view>
+<view bindtap="go" data-url="/pages/index/car?shop_id={{shop.id}}" wx:if="{{ac=='list'}}" class="bt" style="z-index: 1000;">立即租车</view>
+
+<view wx:if="{{ac=='point'}}" bindtap="select_this_point">选择地址</view>
+</view>
+
+<view class="icon icon-xiangxia"></view>
+</view>
+
+
+</view>
+
+
+<view class="nav_bottom">
+<view class="go_bt" wx:if="{{ac=='list'}}" bindtap="rgo" data-url="/pages/shop/search?area={{region[2]}}"><view><text>租车</text></view></view>
+<view class="bts">
+<view class="icon icon-Crosshair m {{get_my_position_show==1?'get_my_position_show':''}}" style="color: #0084ec;opacity: 0;"  bindtap="get_my_position"></view>
+<view class="icon icon-kefu2" style="color: crimson;">
+<button open-type="contact"></button>
+</view>
+<view bindtap="go" data-url="/pages/my/index" style="background:url({{user.logo}}) no-repeat center;background-size: cover;" wx:if="{{user}}"></view>
+<view class="icon icon-people" bindtap="go" data-url="/pages/my/index" wx:else></view>
+
+</view>
+</view>
+
+<view class="search_box" style="top:{{nav.top+nav.safe_top+20}}px" wx:if="{{ac!='daohang'}}">
+<view class="in_box">
+<input placeholder="{{ac=='point'?'请输入关键词':'查找门店'}}" bindinput="key_input" bindblur="map_search"></input>
+<view class="icon icon-Search"></view>
+</view>
+</view>
+
