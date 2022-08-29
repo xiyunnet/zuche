@@ -1,0 +1,111 @@
+{
+   "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+   "projectname": "%E7%A7%9F%E8%BD%A6%20%E9%A1%B9%E7%9B%AE",
+   "setting": {
+      "compileHotReLoad": true
+   },
+   "condition": {
+      "miniprogram": {
+         "list": [
+            {
+               "name": "",
+               "pathName": "pages/my/index",
+               "query": "",
+               "launchMode": "default",
+               "scene": null
+            },
+            {
+               "name": "",
+               "pathName": "pages/login/index",
+               "query": "",
+               "launchMode": "default",
+               "scene": null
+            },
+            {
+               "name": "",
+               "pathName": "pages/adm/shenqin",
+               "query": "",
+               "launchMode": "default",
+               "scene": null
+            },
+            {
+               "name": "",
+               "pathName": "pages/index/index",
+               "query": "ac=point",
+               "launchMode": "default",
+               "scene": null
+            },
+            {
+               "name": "",
+               "pathName": "pages/shop/index",
+               "query": "",
+               "launchMode": "default",
+               "scene": null
+            },
+            {
+               "name": "",
+               "pathName": "pages/shop/search",
+               "query": "area=%E5%8D%97%E6%B9%96%E5%8C%BA",
+               "launchMode": "default",
+               "scene": null
+            },
+            {
+               "name": "",
+               "pathName": "pages/adm/shop",
+               "query": "",
+               "launchMode": "default",
+               "scene": null
+            },
+            {
+               "name": "",
+               "pathName": "pages/adm/shop_info",
+               "query": "id=6",
+               "launchMode": "default",
+               "scene": null
+            },
+            {
+               "name": "",
+               "pathName": "pages/img/index",
+               "query": "",
+               "launchMode": "default",
+               "scene": null
+            },
+            {
+               "name": "",
+               "pathName": "pages/img/index",
+               "query": "max=10",
+               "launchMode": "default",
+               "scene": null
+            },
+            {
+               "name": "",
+               "pathName": "pages/adm/car",
+               "query": "shop_id=6",
+               "launchMode": "default",
+               "scene": null
+            },
+            {
+               "name": "",
+               "pathName": "pages/adm/car_edit",
+               "query": "id=2",
+               "launchMode": "default",
+               "scene": null
+            },
+            {
+               "name": "",
+               "pathName": "pages/index/car",
+               "query": "shop_id=6&id=2",
+               "launchMode": "default",
+               "scene": null
+            },
+            {
+               "name": "",
+               "pathName": "pages/adm/car",
+               "query": "shop_id=6",
+               "launchMode": "default",
+               "scene": null
+            }
+         ]
+      }
+   }
+}
